@@ -15,7 +15,7 @@ contactsRouter.get('/', async (req: Request, res: Response) => {
 
   const contacts = await contactsRepository.find();
 
-  return res.json(contacts);
+  return res.status(200).json(contacts);
 });
 
 contactsRouter.post('/', async (req: Request, res: Response) => {
@@ -25,7 +25,7 @@ contactsRouter.post('/', async (req: Request, res: Response) => {
 
   const contact = await createContact.execute({ name, phoneNumber, user_id });
 
-  return res.json(contact);
+  return res.status(201).json(contact);
 });
 
 contactsRouter.delete('/:id', async (req: Request, res: Response) => {
@@ -41,12 +41,11 @@ contactsRouter.delete('/:id', async (req: Request, res: Response) => {
 contactsRouter.get('/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
 
-
   const createReadContact = new ReadContactService();
 
   const contact = await createReadContact.execute(id);
 
-  return res.json(contact);
+  return res.status(200).json(contact);
 });
 
 contactsRouter.put('/:id', async (req: Request, res: Response) => {
@@ -57,7 +56,7 @@ contactsRouter.put('/:id', async (req: Request, res: Response) => {
 
   const contact = await createUpdateContact.execute({ id, name, phoneNumber });
 
-  return res.json(contact);
+  return res.status(204).json(contact);
 });
 
 
