@@ -12,21 +12,18 @@ class UpdateContactService {
   public async execute({ id, name, phoneNumber }: RequestDTO): Promise<Contact | undefined> {
     const contactsRepository = getRepository(Contact);
 
-    try {
-      await contactsRepository.update(id,
-        {
-          name: name,
-          phoneNumber: phoneNumber,
-        }
-      );
+    const updateContact = await contactsRepository.findOne(id);
 
-      const edittedContact = await contactsRepository.findOne(id);
-
-      return edittedContact;
-
-    } catch (error) {
-      throw Error;
+    if (!updateContact) {
+      throw new Error('Contact not found!');
     }
+
+    updateContact.name = name || updateContact.name;
+    updateContact.phoneNumber = phoneNumber || updateContact.phoneNumber;
+
+    const updatedContact = await contactsRepository.save(updateContact);
+
+    return updatedContact;
   }
 }
 
