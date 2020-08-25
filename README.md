@@ -19,7 +19,7 @@
 ### End Points
 
 - Users
-  - GET /users : Return all users in user's table with his contacts relations({ eager: true } all realtions will be listed without any code).
+  - GET /users : Return all users in user's table({ eager: true } all realtions(Contacts) will be listed too).
   - POST /users : Create a user in user's table.
   - PUT /users/:id : Update a user from user's table({ cascade: true } all relations will be updated).
   - DELETE /users/:id Delete a user in users's table({ cascade: true } all relations will be lost).
