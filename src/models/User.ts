@@ -10,7 +10,7 @@ import {
 import Contact from './Contact';
 
 @Entity('users')
-class Contact {
+class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -23,7 +23,7 @@ class Contact {
   @Column()
   password: string;
 
-  @OneToMany()
+  @OneToMany(() => Contact, contact => contact.user_id, { eager: true, cascade: true })
   contacts: Contact[];
 
   @CreateDateColumn()
@@ -33,4 +33,4 @@ class Contact {
   updated_at: Date;
 }
 
-export default Contact
+export default User

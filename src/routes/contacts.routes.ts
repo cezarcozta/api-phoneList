@@ -1,10 +1,10 @@
 import { Router, Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 
-import CreateContactService from '../services/CreateContactService';
-import DeleteContactService from '../services/DeleteContactService';
-import ReadContactService from '../services/ReadContactService';
-import UpdateContactService from '../services/UpdateContactService';
+import CreateContactService from '../services/contact/CreateContactService';
+import DeleteContactService from '../services/contact/DeleteContactService';
+import ReadContactService from '../services/contact/ReadContactService';
+import UpdateContactService from '../services/contact/UpdateContactService';
 
 import Contact from '../models/Contact';
 
@@ -19,11 +19,11 @@ contactsRouter.get('/', async (req: Request, res: Response) => {
 });
 
 contactsRouter.post('/', async (req: Request, res: Response) => {
-  const { name, phoneNumber } = req.body;
+  const { name, phoneNumber, user_id } = req.body;
 
-  const createContact =  new CreateContactService();
+  const createContact = new CreateContactService();
 
-  const contact = await createContact.execute({name, phoneNumber});
+  const contact = await createContact.execute({ name, phoneNumber, user_id });
 
   return res.json(contact);
 });
@@ -51,11 +51,11 @@ contactsRouter.get('/:id', async (req: Request, res: Response) => {
 
 contactsRouter.put('/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
-  const {name, phoneNumber} = req.body;
+  const { name, phoneNumber } = req.body;
 
   const createUpdateContact = new UpdateContactService();
 
-  const contact = await createUpdateContact.execute({ id, name, phoneNumber});
+  const contact = await createUpdateContact.execute({ id, name, phoneNumber });
 
   return res.json(contact);
 });
