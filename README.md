@@ -66,3 +66,7 @@
 - César Augusto Costa
   - [cezarcozta.com](https://cezarcozta.com)
   - [Linkedin](https://www.linkedin.com/in/cezarcozta)
+
+###### Version 2.0
+
+`Resource route /user/:id/contacts`
