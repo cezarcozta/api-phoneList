@@ -1,7 +1,7 @@
 import { getRepository } from 'typeorm';
 
-import Contact from '../models/Contact';
-import User from '../models/User';
+import Contact from '../../models/Contact';
+import User from '../../models/User';
 
 interface RequestDTO {
   name: string;

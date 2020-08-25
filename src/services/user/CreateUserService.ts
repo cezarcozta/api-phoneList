@@ -1,7 +1,5 @@
-import CreateContactService from "./CreateContactService";
-
 import { getRepository } from 'typeorm';
-import User from '../models/User';
+import User from '../../models/User';
 
 interface RequestDTO {
   name: string;
