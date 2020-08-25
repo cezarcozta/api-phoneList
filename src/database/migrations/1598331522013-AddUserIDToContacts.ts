@@ -8,6 +8,7 @@ export default class AddUserIDToContacts1598331522013 implements MigrationInterf
       new TableColumn({
         name: 'user_id',
         type: 'uuid',
+        isNullable: false,
       }),
     );
 
@@ -18,7 +19,7 @@ export default class AddUserIDToContacts1598331522013 implements MigrationInterf
         columnNames: ['user_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
-        onDelete: 'SET NULL',
+        onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       }),
     );

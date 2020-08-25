@@ -1,6 +1,6 @@
 import { getRepository } from 'typeorm';
 
-import Contact from '../models/Contact';
+import Contact from '../../models/Contact';
 
 class DeleteContactService {
   public async execute(id: string): Promise<void> {
@@ -8,9 +8,9 @@ class DeleteContactService {
 
     const contact = await contactRepository.findOne(id);
 
-    if(contact) {
+    if (contact) {
       await contactRepository.remove(contact);
-    }else{
+    } else {
       throw Error;
     }
   }

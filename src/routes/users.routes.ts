@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 
 import CreateUserService from '../services/user/CreateUserService';
+import DeleteUserService from '../services/user/DeleteUserService';
 
 import User from '../models/User';
 
@@ -12,7 +13,7 @@ usersRouter.get('/', async (req: Request, res: Response) => {
 
   const users = await usersRepository.find();
 
-  return res.json(users);
+  return res.status(200).json(users);
 });
 
 usersRouter.post('/', async (req: Request, res: Response) => {
@@ -24,18 +25,18 @@ usersRouter.post('/', async (req: Request, res: Response) => {
 
   delete user.password;
 
-  return res.json(user);
+  return res.status(201).json(user);
 });
 
-// usersRouter.delete('/:id', async (req: Request, res: Response) => {
-//   const { id } = req.params;
+usersRouter.delete('/:id', async (req: Request, res: Response) => {
+  const { id } = req.params;
 
-//   const createDeleteContact = new Deleteuserservice();
+  const createDeleteContact = new DeleteUserService();
 
-//   await createDeleteContact.execute(id);
+  await createDeleteContact.execute(id);
 
-//   return res.status(204).send();
-// });
+  return res.status(204).send();
+});
 
 // usersRouter.get('/:id', async (req: Request, res: Response) => {
 //   const { id } = req.params;
