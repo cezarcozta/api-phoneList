@@ -19,16 +19,16 @@
 ### End Points
 
 - Users
-  - GET /users : Return all users in user's table with his contacts relations({ eager: true } (typeORM magic)).
+  - GET /users : Return all users in user's table with his contacts relations({ eager: true } all realtions will be listed without any code).
   - POST /users : Create a user in user's table.
-  - PUT /users/:id : Update a user from user's.
-  - DELETE /users/:id Delete a user in users's .
+  - PUT /users/:id : Update a user from user's table({ cascade: true } all relations will be updated).
+  - DELETE /users/:id Delete a user in users's table({ cascade: true } all relations will be lost).
 
 - Contacts
   - GET /contacts : Return all contacts in contact's table.
   - POST /contacts : Create a contact in contact's table(**needed a user id**).
-  - PUT /contacts/:id : Update a contact from contact's table.
-  - DELETE /contacts/:id Delete a contact in contact's table.
+  - PUT /contacts/:id : Update a contact from contact's table({ cascade: true } all relations will be updated).
+  - DELETE /contacts/:id Delete a contact in contact's table({ cascade: true } all relations will be lost).
 
 #### Getting Started
 
