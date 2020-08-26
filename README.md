@@ -1,71 +1,86 @@
 # One To Many / Many To One - Pratice
 
-`In this study case I developed a simple API to abstract a "Phone Contact List"(Name and phone number).`
+```z
+In this study case I developed a simple API to abstract a Phone Contact List(Name and phone number).
 
-`An user can have multiples contacts, these multiples contacts have only one user so I implemented one to many, many to one relationship by using TypeORM.`
+An user can have multiples contacts, these multiples contacts have only one user so I implemented one to many, many to one relationship using TypeORM.
+```
 
 ## Techs and Tools
 
-- Language:
-  - TypeScript
-- Code:
-  - ESLint Airbnb style
-- Database:
-  - PostgreSQL
-- TypeORM
-  - Relations:
-    - OneToMany/ManyToOne
+- [NodeJS](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TypeORM](https://typeorm.io/#/)
+- [PostgreSQL](https://sqlite.org/version3.html)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [ts-node-dev](https://www.npmjs.com/package/ts-node-dev)
 
 ### End Points
 
 - Users
-  - GET /users : Return all users in user's table({ eager: true } all realtions(Contacts) will be listed too).
-  - POST /users : Create a user in user's table.
-  - PUT /users/:id : Update a user from user's table({ cascade: true } all relations will be updated).
-  - DELETE /users/:id Delete a user in users's table({ cascade: true } all relations will be lost).
+
+  ```bash
+  GET:    /users
+  POST:   /users
+  PUT:    /users/:id
+  DELETE: /users/:id
+  ```
 
 - Contacts
-  - GET /contacts : Return all contacts in contact's table.
-  - POST /contacts : Create a contact in contact's table(**needed a user id**).
-  - PUT /contacts/:id : Update a contact from contact's table({ cascade: true } all relations will be updated).
-  - DELETE /contacts/:id Delete a contact in contact's table({ cascade: true } all relations will be lost).
+
+```bash
+  GET:    /contacts
+  POST:   /contacts
+  PUT:    /contacts/:id
+  DELETE: /contacts/:id
+```
 
 #### Getting Started
 
 > **Yarn and NPM are REQUIRED!**
 >
-> **A PostgreSQL Database**
+> **And an instance of PostgreSQL Database(prefere Docker)**
 
-- PostgreSQL
+```bash
+  # PostgreSQL
   - host: localhost
   - port: 5432
   - username: postgres,
   - password: docker,
   - database: postgres,
 
-- Clone this repository
-  - ```git clone https://github.com/cezarcozta/api-phoneList.git```
+  # Clone this repository
+  $ git clone https://github.com/cezarcozta/api-phoneList.git
 
-- Access project folder
-  - ```cd api-phoneList```
+  # Access project folder
+  $ cd api-phoneList
 
-- Install all dependencies
-  - ```yarn```
+  # Install all dependencies
+  $ yarn
 
-- Run all migrations
-  - ```yarn typeorm migration:run```
+  # Run all migrations
+  $ yarn typeorm migration:run
 
-- Run the project
-  - ```yarn dev:server```
+  # Run the project
+  $ yarn dev:server
 
-- Server on localhost port 3333
-  - [Localhost](http://localhost:3333)
+  # Server on localhost port 3333
+  $ http://localhost:3333
+```
 
-##### Author
+----------------------------------------------------------------------------
 
-- César Augusto Costa
+##### Developed by
+
+- César Augusto Costa :sunglasses: :sunglasses: :sunglasses:
   - [cezarcozta.com](https://cezarcozta.com)
-  - [Linkedin](https://www.linkedin.com/in/cezarcozta)
+  - cezarcozta@gmail.com
+  - [Linkedin/cezarcozta](www.linkedin.com/in/cezarcozta)
+  - [Twitter@cezarcozta](www.twitter.com/cezarcozta)
+  - [Instagram@cezarcozta](www.instagram.com/cezarcozta)
+  - [Facebook/cezarcozta](www.facebook.com/cezarcozta)
 
 ###### Version 2.0
 
