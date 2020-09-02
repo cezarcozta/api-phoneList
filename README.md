@@ -4,7 +4,7 @@
 In this study case I developed a simple API to abstract a Phone Contact List
 (Name and phone number).
 
-An user can have multiples contacts, these multiples contacts have only one user
+An user can have multiples contacts, these multiples contacts have only one user,
 so I implemented one to many, many to one relationship using TypeORM.
 ```
 
